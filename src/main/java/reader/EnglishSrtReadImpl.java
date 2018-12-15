@@ -11,13 +11,14 @@ import java.util.*;
 
 import java.util.stream.Collectors;
 
-public class EnglishSrtReadImpl implements reader.SrtReader {
+public class EnglishSrtReadImpl implements SrtReader {
 
     Logger logger = LoggerFactory.getLogger(EnglishSrtReadImpl.class);
 
     List<File> srtFileInputList = new ArrayList<>();
 
     List<WorldBean> wordSortList = new ArrayList<>();
+    String regularExpress = "[^a-zA-Z ]";
     public List<WorldBean> readSrt(String dirPath) {
         logger.info("base dir: "+ dirPath);
         File  inputFile = new File(dirPath);
@@ -29,7 +30,7 @@ public class EnglishSrtReadImpl implements reader.SrtReader {
 
         }
 
-        String englishMatch = "[^a-zA-Z ]";
+        String englishMatch = regularExpress;
         List<String> proccessDate= new ArrayList<>();
         List<String> allLine;
 
@@ -97,5 +98,10 @@ public class EnglishSrtReadImpl implements reader.SrtReader {
 
     public void init() {
 
+    }
+
+    @Override
+    public void setRegularExpress(String regularExpree) {
+            this.regularExpress = regularExpree;
     }
 }

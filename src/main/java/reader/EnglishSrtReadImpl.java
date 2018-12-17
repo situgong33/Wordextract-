@@ -74,6 +74,9 @@ public class EnglishSrtReadImpl implements SrtReader {
 
         }
 
+
+
+
         wordSortList = new ArrayList<>(wordSet);
         wordSortList.sort(new Comparator<WorldBean>() {
             @Override
@@ -87,6 +90,12 @@ public class EnglishSrtReadImpl implements SrtReader {
 //            logger.info(item.toString());
 //
 //        }
+
+
+        wordSortList = wordSortList.stream()
+                .filter(item -> !item.getWord().trim().isEmpty())
+                .collect(Collectors.toList());
+
 
         logger.info("总单词："+ wordList.size());
         logger.info("不重复单词："+ wordSet.size());

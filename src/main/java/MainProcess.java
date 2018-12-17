@@ -165,6 +165,12 @@ public class MainProcess {
 
     }
 
+    /**
+     * 写入单词到txt
+     * word /t chinese /t count
+     * @param notHandledWorldList
+     * @param exportFileName
+     */
     private void writeResult(List<WorldBean> notHandledWorldList,String exportFileName) {
 
         File exportFile = new File(exportFileName);

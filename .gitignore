@@ -95,3 +95,5 @@ buildNumber.properties
 
 /exportNotHandledWordDir/
 /assets/mdicts/
+/notHandledWordDir/
+/assets/
